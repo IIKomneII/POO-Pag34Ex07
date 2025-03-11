@@ -3,7 +3,7 @@
 ContaBancaria contaBancaria = new ContaBancaria();
 
 int numeroDoCartao;
-double saldo, saque, deposito;
+double saldo, saque, deposito, desconto;
 string nomeDoTitular, classificacao;
 
 Console.WriteLine("Qual o nome no seu cartão: ");
@@ -26,7 +26,7 @@ contaBancaria.Deposito(saldo, deposito);
 Console.WriteLine("Quantos você quer sacar: ");
 saque = double.Parse(Console.ReadLine());
 
-contaBancaria.Saque(saldo, saque);
+contaBancaria.Saque(saldo, saque, deposito, classificacao);
 
 Console.WriteLine($"Nome do titular: {nomeDoTitular} classificação do titular: {classificacao} numero do cartão: {numeroDoCartao} deposito feito na conta: {contaBancaria.Deposito} saque feito na conta: {contaBancaria.Saque}");
 

@@ -2,21 +2,38 @@
 
 public class ContaBancaria
 {
-    double saldo, saque, deposito;
-
-    public double Saque(double saldo, double saque)
+    double saldo, saque, deposito, desconto;
+    
+    public double Saque(double saldo, double saque, double deposito, string classificacao)
     {
-        if (saldo > saque)
+        if (classificacao == "Comum")
         {
-            return saldo - saque;
+            if (saldo > saque)
+            {
+                return saldo - saque;
+            }
+            else
+            {
+                return -1;
+            }
         }
         else
-            return -1;
+        {
+            saque = saque - deposito / 0.8;
+
+            if (saldo > saque)
+            {
+                return saldo - saque;
+            }
+            else
+            {
+                return -1;
+            }
+        }
     }
 
     public double Deposito(double saldo, double deposito)
     {
-
         return saldo + deposito;
     }
 }
